@@ -12,7 +12,7 @@ import { retry } from 'rxjs/operators';
 @Injectable()
 export class OfertasService {
 
-    private url_api = 'http://localhost:3000/ofertas'
+    //private url_api = 'http://localhost:3000/ofertas'
 
     constructor(private http: HttpClient){}
     
