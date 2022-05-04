@@ -5,6 +5,7 @@ import { Oferta } from "./shared/oferta.model"
 import { URL_API } from './app.api'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators';
+import { retry } from 'rxjs/operators';
 
 
 
@@ -53,6 +54,7 @@ export class OfertasService {
 
     public pesquisaOfertas(termo: string): Observable<Oferta[]>{
         return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+            .pipe(retry(10)) 
             .pipe(map((resposta: any) => resposta))
     }
 }
