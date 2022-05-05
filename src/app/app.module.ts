@@ -22,6 +22,7 @@ import { registerLocaleData } from '@angular/common';
 
 //pipe
 import { DescricaoReduzida } from './shared/descricao-reduzida.pipe';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DescricaoReduzida } from './shared/descricao-reduzida.pipe';
     OfertaComponent,
     ComoUsarComponent,
     OndeFicaComponent,
-    DescricaoReduzida
+    DescricaoReduzida,
+    OrdemCompraComponent
   ],
   imports: [
     BrowserModule,
