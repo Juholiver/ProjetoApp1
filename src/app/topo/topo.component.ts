@@ -3,8 +3,10 @@ import { Observable, Subject } from 'rxjs';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 import { debounceTime } from 'rxjs';
-import { switchMap } from 'rxjs/operators'
-import { of } from 'rxjs'; 
+import { distinctUntilChanged } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError } from 'rxjs'; 
 
 @Component({
   selector: 'app-topo',
@@ -22,6 +24,7 @@ export class TopoComponent implements OnInit {
   ngOnInit(): void {
     this.ofertas = this.subjectPesquisa.pipe(
       debounceTime(1000),
+      distinctUntilChanged(),
       switchMap((termo: string) => {
         console.log('requisição http para api:')
 
@@ -33,6 +36,10 @@ export class TopoComponent implements OnInit {
         
       })
     )  // retorno Oferta[]
+    catchError((erro: any )=> {
+      console.log(erro)
+      return of<Oferta[]>([])
+    })
     this.ofertas.subscribe((ofertas: Oferta[])=> console.log(ofertas))
       
   }
