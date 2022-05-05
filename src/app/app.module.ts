@@ -20,6 +20,9 @@ import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { registerLocaleData } from '@angular/common';
 
+//pipe
+import { DescricaoReduzida } from './shared/descricao-reduzida.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { registerLocaleData } from '@angular/common';
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    DescricaoReduzida
   ],
   imports: [
     BrowserModule,
