@@ -4,6 +4,7 @@ import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 import { debounceTime } from 'rxjs';
 import { switchMap } from 'rxjs/operators'
+import { of } from 'rxjs'; 
 
 @Component({
   selector: 'app-topo',
@@ -23,6 +24,11 @@ export class TopoComponent implements OnInit {
       debounceTime(1000),
       switchMap((termo: string) => {
         console.log('requisição http para api:')
+
+        if(termo.trim() === ''){
+          //retornar um observable de array de ofertas vazio
+          return of<Oferta[]>([]); 
+        }
         return this.ofertasService.pesquisaOfertas(termo)
         
       })
