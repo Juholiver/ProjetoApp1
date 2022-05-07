@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpResponse } from "@angular/common/http"
 import { Pedido } from "./shared/pedido.model"
 import { Observable, map } from "rxjs"
 
@@ -13,10 +13,10 @@ export class OrdemCompraService {
 
     public efetivarCompra(pedido: Pedido): Observable<any> {
          return this.http.post(
-            "http://localhost:3000/pedidos",
+            `${URL_API}/pedidos`,
             pedido
-            ).pipe(map((response: any ) => {
-                console.log(response)
-            }))
+            ).pipe(map((resposta: any ) => 
+                resposta.id
+            ))
     }
 }

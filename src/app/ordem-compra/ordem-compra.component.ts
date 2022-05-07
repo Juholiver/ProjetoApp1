@@ -10,6 +10,8 @@ import { Pedido } from '../shared/pedido.model';
 })
 export class OrdemCompraComponent implements OnInit {
 
+  public idPedidoCompra: number | undefined
+
   //Pedido
   public pedido: Pedido = new Pedido('', '', '','')
 
@@ -119,7 +121,9 @@ export class OrdemCompraComponent implements OnInit {
     this.pedido.complemento = this.complemento
     this.pedido.formaPagamento = this.formaPagamento
     this.ordemCompraService.efetivarCompra(this.pedido)
-      .subscribe()
+      .subscribe((idPedido: any) => {
+        this.idPedidoCompra = idPedido
+      })
   }
 
 }
