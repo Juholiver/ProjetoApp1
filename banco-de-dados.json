@@ -357,6 +357,13 @@
       "complemento": "restaurante",
       "formaPagamento": "debito",
       "id": 26
+    },
+    {
+      "endereco": "Rua Maria das Flores",
+      "numero": "546",
+      "complemento": "Casa 2",
+      "formaPagamento": "dinheiro",
+      "id": 27
     }
   ]
 }
