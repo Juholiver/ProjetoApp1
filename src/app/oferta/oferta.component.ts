@@ -27,8 +27,6 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   
   ngOnInit(): void {
-    console.log ('Oferta - Array de itens do carrinho: ' , this.carrinhoService.exibirItens())
-
     this.route.params.subscribe((parametros: Params) => {
 
       this.ofertasService.getOfertaPorId(parametros['id'])
@@ -44,6 +42,11 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     
+  }
+
+  public adicionarItemCarrinho(oferta: Oferta): void {
+    this.carrinhoService.incluirItem(oferta)
+    //console.log(this.oferta)
   }
 
 }

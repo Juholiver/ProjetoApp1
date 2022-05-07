@@ -1,11 +1,11 @@
 class ItemCarrinho {
     constructor(
-        public id: number,
+        public id: number | undefined,
         public img: object,
-        public titulo: string,
-        public descricao_oferta: string,
-        public valor: number,
-        public quantidade: number,
+        public titulo: string | undefined,
+        public descricao_oferta: string | undefined,
+        public valor: number| undefined,
+        public quantidade: number| undefined,
 
     ) {}
 }
