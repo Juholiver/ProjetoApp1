@@ -28,7 +28,7 @@ export class OrdemCompraComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log ('Array de itens do carrinho: ' , this.carrinhoService.exibirItens())
+    console.log ('Ordem-compra Array de itens do carrinho: ' , this.carrinhoService.exibirItens())
 
     
   }
