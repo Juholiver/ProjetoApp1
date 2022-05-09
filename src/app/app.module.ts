@@ -6,8 +6,13 @@ import localePt from '@angular/common/locales/pt'
 //import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { CarrinhoService } from './carrinho.service';
+
 
 import { ROUTES } from './app.routes';
+
+//pipe
+import { DescricaoReduzida } from './shared/descricao-reduzida.pipe';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,8 +27,7 @@ import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { registerLocaleData } from '@angular/common';
 
-//pipe
-import { DescricaoReduzida } from './shared/descricao-reduzida.pipe';
+
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
@@ -51,6 +55,7 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
+    CarrinhoService,
     { provide: LOCALE_ID, useValue: 'pt-BR'},
     { provide: DEFAULT_CURRENCY_CODE, useValue: "BRL"}
   ],
