@@ -4,7 +4,7 @@
     
       <h5>Sua Compra</h5>
       <hr />
-
+    <div *ngIf="carrinhoService.exibirItens().length; else carrinhoVazio">  
       <div *ngFor="let item of itensCarrinho" class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
           <img [src]=" item.img.url " class="img-fluid">
@@ -37,6 +37,18 @@
           <h4>Total do pedido: {{ carrinhoService.totalCarrinhoCompras() | currency }}</h4>
         </div>
       </div>
+    </div>
+    
+    <ng-template #carrinhoVazio>
+      <div 
+        class="form-row d-flex justify-content-center" 
+        style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+        Seu carrinho Está vazio! Não perca tempo, aproveite as ofertas
+      </div>
+    </ng-template>
+    
+    
+
       <br />
 
       <h5>Dados de entrega</h5>
